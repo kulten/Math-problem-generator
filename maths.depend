@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1528528930 source:c:\users\skinet\desktop\maths\main.cpp
+	<iostream>
+	<random>
+	<conio.h>
+	<chrono>
+	<ctime>
+
