@@ -4,9 +4,9 @@
 #include<chrono>
 #include<ctime>
 using namespace std;
-void addition(int n,int r1, int r2)
+void addition(long n,long r1, long r2)
 {
-    int a,b,c,d;
+    long a,b,c,d;
   if(r1 > r2)
   {
       int t = r2;
@@ -37,7 +37,8 @@ void addition(int n,int r1, int r2)
 }
 int main()
 {
-    int x,y,z;
+    int x;
+    long y,z;
     cout<<"How many sums?\n";
     cin>>x;
     cout<<"\nWhat range should they be in?\n";
