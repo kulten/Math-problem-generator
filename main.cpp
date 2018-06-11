@@ -93,8 +93,43 @@ void addition(long n,long r1, long r2)
         cout<<"\Good job!\n";
   }
 }
+void maths()
+{
+    int x,sel;
+    long y,z;
+    string ch;
+    cout<<"Addition or Subtraction?\n";
+    cout<<"Choice: ";
+    cin>>ch;
+    transform(ch.begin(), ch.end(), ch.begin(), ::tolower);
+    sel = comparestr(ch);
+    while(sel==0)
+    {
+        cout<<"\nDid not understand that command, try again.\n";
+        cout<<"Addition or Subtraction?\n";
+        cout<<"Choice: ";
+        cin>>ch;
+        sel=comparestr(ch);
+    }
+    cout<<"\nHow many sums?\n";
+    cin>>x;
+    cout<<"\nWhat range should they be in?\n";
+    cout<<"First number: ";
+    cin>>y;
+    cout<<"\nSecond number: ";
+    cin>>z;
+    if(sel ==1)
+    {
+    addition(x,y,z);
+    }
+    else if(sel ==2)
+    {
+        subtraction(x,y,z);
+    }
+}
 int main()
 {
+    /*
     int x,sel;
     long y,z;
     string ch;
@@ -118,5 +153,29 @@ int main()
     {
         subtraction(x,y,z);
     }
-    getch();
+    else if(sel == 0)
+    {
+        cout<<"\n Sorry, did not understand that command. Try again.\n";
+    }
+    */
+    string y ="yes";
+    string n ="no";
+    string p;
+    maths();
+    while(true)
+    {
+    cout<<"\n Wanna try more problems? Type yes or no.\n";
+    cin>>p;
+    if((p.compare(y))==0)
+    {
+        maths();
+    }
+    else if((p.compare(n))==0)
+    {
+        break;
+    }
+
+}
+cout<<"\n Cya next time";
+getch();
 }
