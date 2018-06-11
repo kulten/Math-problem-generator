@@ -129,42 +129,13 @@ void maths()
 }
 int main()
 {
-    /*
-    int x,sel;
-    long y,z;
-    string ch;
-    cout<<"Addition or Subtraction?\n";
-    cout<<"Choice: ";
-    cin>>ch;
-    transform(ch.begin(), ch.end(), ch.begin(), ::tolower);
-    sel = comparestr(ch);
-    cout<<"\nHow many sums?\n";
-    cin>>x;
-    cout<<"\nWhat range should they be in?\n";
-    cout<<"First number: ";
-    cin>>y;
-    cout<<"\nSecond number: ";
-    cin>>z;
-    if(sel ==1)
-    {
-    addition(x,y,z);
-    }
-    else if(sel ==2)
-    {
-        subtraction(x,y,z);
-    }
-    else if(sel == 0)
-    {
-        cout<<"\n Sorry, did not understand that command. Try again.\n";
-    }
-    */
     string y ="yes";
     string n ="no";
     string p;
     maths();
     while(true)
     {
-    cout<<"\n Wanna try more problems? Type yes or no.\n";
+    cout<<"\nWanna try more problems? Type yes or no.\n";
     cin>>p;
     if((p.compare(y))==0)
     {
@@ -176,6 +147,6 @@ int main()
     }
 
 }
-cout<<"\n Cya next time";
+cout<<"\nCya next time";
 getch();
 }
