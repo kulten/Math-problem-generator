@@ -10,6 +10,7 @@ int comparestr(string s)
 {
     string add = "addition";
     string sub = "subtraction";
+    string mul = "multiplication";
     int b = 0;
     if((s.compare(add))==0)
     {
@@ -18,6 +19,10 @@ int comparestr(string s)
     else if((s.compare(sub))==0)
     {
         return 2;
+    }
+    else if((s.compare(mul))==0)
+    {
+        return 3;
     }
     else
     {
@@ -33,7 +38,6 @@ void change(long &a,long &b)
 }
 void randn(long &x,long &y,long num1,long num2)
 {
-    long c;
     chrono::system_clock::time_point t = chrono::system_clock::now();
   time_t tp = chrono::system_clock::to_time_t(t);
   mt19937 ab(tp);
@@ -56,7 +60,7 @@ void subtraction(long n,long r1,long r2)
 
         randn(a,b,r1,r2);
         c = a - b;
-        cout<<"\nSum number: "<<i<<endl;
+        cout<<"\nProblem number: "<<i<<endl;
         cout<<a<<" - "<<b<<" = ?"<<endl;
         cout<<"What's the answer?\n";
         cin>>d;
@@ -65,7 +69,7 @@ void subtraction(long n,long r1,long r2)
             cout<<"\nWrong answer, try again\n";
             cin>>d;
         }
-        cout<<"\Good job!\n";
+        cout<<"Good job!\n";
   }
 }
 void addition(long n,long r1, long r2)
@@ -81,7 +85,7 @@ void addition(long n,long r1, long r2)
 
         randn(a,b,r1,r2);
         c = a + b;
-        cout<<"\nSum number: "<<i<<endl;
+        cout<<"\nProblem number: "<<i<<endl;
         cout<<a<<" + "<<b<<" = ?"<<endl;
         cout<<"What's the answer?\n";
         cin>>d;
@@ -90,7 +94,32 @@ void addition(long n,long r1, long r2)
             cout<<"\nWrong answer, try again\n";
             cin>>d;
         }
-        cout<<"\Good job!\n";
+        cout<<"Good job!\n";
+  }
+}
+void multiplication(long n,long r1, long r2)
+{
+    cout<<"\ngot it! "<<n<<" multiplication problems coming right up!\n";
+    long a=0,b=0,c,d;
+  if(r1 > r2)
+  {
+      change(r1,r2);
+  }
+  for(int i = 1; i <= n; i++)
+  {
+
+        randn(a,b,r1,r2);
+        c = a * b;
+        cout<<"\nProblem number: "<<i<<endl;
+        cout<<a<<" x "<<b<<" = ?"<<endl;
+        cout<<"What's the answer?\n";
+        cin>>d;
+        while(d!=c)
+        {
+            cout<<"\nWrong answer, try again\n";
+            cin>>d;
+        }
+        cout<<"Good job!\n";
   }
 }
 void maths()
@@ -98,7 +127,7 @@ void maths()
     int x,sel;
     long y,z;
     string ch;
-    cout<<"Addition or Subtraction?\n";
+    cout<<"Addition, Subtraction or Multiplication?\n";
     cout<<"Choice: ";
     cin>>ch;
     transform(ch.begin(), ch.end(), ch.begin(), ::tolower);
@@ -125,6 +154,10 @@ void maths()
     else if(sel ==2)
     {
         subtraction(x,y,z);
+    }
+    else if(sel ==3)
+    {
+        multiplication(x,y,z);
     }
 }
 int main()
