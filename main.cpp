@@ -6,12 +6,22 @@
 #include<string>
 #include<algorithm>
 using namespace std;
+void times_tables(int a)
+{
+    cout<<"Coming right up!\n";
+    int sum=0;
+    for(int i=1;i<=10;i++)
+    {
+        sum = i*a;
+        cout<<a<<" x "<<i<<" = "<<sum<<endl;
+    }
+}
 int comparestr(string s)
 {
     string add = "addition";
     string sub = "subtraction";
     string mul = "multiplication";
-    int b = 0;
+    string tim = "times tables";
     if((s.compare(add))==0)
     {
         return 1;
@@ -24,9 +34,13 @@ int comparestr(string s)
     {
         return 3;
     }
+    else if((s.compare(tim))==0)
+    {
+        return 4;
+    }
     else
     {
-        return b;
+        return -1;
     }
 }
 void change(long &a,long &b)
@@ -127,19 +141,31 @@ void maths()
     int x,sel;
     long y,z;
     string ch;
-    cout<<"Addition, Subtraction or Multiplication?\n";
+    cout<<"Addition, Subtraction, Multiplication or Times Tables?\n";
     cout<<"Choice: ";
-    cin>>ch;
+    cin.clear();
+    cin.sync();
+    getline(cin,ch);
     transform(ch.begin(), ch.end(), ch.begin(), ::tolower);
     sel = comparestr(ch);
-    while(sel==0)
+    while(sel==-1)
     {
         cout<<"\nDid not understand that command, try again.\n";
-        cout<<"Addition or Subtraction?\n";
+        cout<<"Addition, Subtraction, Multiplication or Times Tables?\n";
         cout<<"Choice: ";
-        cin>>ch;
+        cin.clear();
+        cin.sync();
+        getline(cin,ch);
         sel=comparestr(ch);
     }
+    if(sel==4)
+    {
+      cout<<"\nWhich times table do you want?\n";
+      cin>>x;
+      times_tables(x);
+    }
+    else
+    {
     cout<<"\nHow many sums?\n";
     cin>>x;
     cout<<"\nWhat range should they be in?\n";
@@ -158,6 +184,7 @@ void maths()
     else if(sel ==3)
     {
         multiplication(x,y,z);
+    }
     }
 }
 int main()
