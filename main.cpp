@@ -10,10 +10,18 @@ void times_tables(int a)
 {
     cout<<"Coming right up!\n";
     int sum=0;
+    int x;
     for(int i=1;i<=10;i++)
     {
         sum = i*a;
-        cout<<a<<" x "<<i<<" = "<<sum<<endl;
+        cout<<a<<" x "<<i<<" = ?"<<endl;
+        cin>>x;
+        while(x!=sum)
+        {
+            cout<<"\nWrong answer, try again\n";
+            cin>>x;
+        }
+        cout<<"Good job muff!"<<endl;
     }
 }
 int comparestr(string s)
