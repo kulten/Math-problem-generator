@@ -8,20 +8,30 @@
 using namespace std;
 void times_tables(int a)
 {
+    vector<int>vec;
     cout<<"Coming right up!\n";
-    int sum=0;
+    int sum=0,y;
     int x;
     for(int i=1;i<=10;i++)
     {
-        sum = i*a;
-        cout<<a<<" x "<<i<<" = ?"<<endl;
+      sum = i*a;
+      vec.push_back(sum);
+    }
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    default_random_engine e(seed);
+    shuffle(vec.begin(), vec.end(),e);
+    for(int i=0;i<10;i++)
+    {
+        sum=vec[i];
+        y = sum/a;
+        cout<<a<<" x "<<y<<" = ?\n";
         cin>>x;
         while(x!=sum)
         {
             cout<<"\nWrong answer, try again\n";
             cin>>x;
         }
-        cout<<"Good job muff!"<<endl;
+        cout<<"\nGood job!\n";
     }
 }
 int comparestr(string s)
